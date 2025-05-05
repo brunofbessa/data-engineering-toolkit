@@ -1,0 +1,50 @@
+id,name,sector,last_revenue_million,email
+1,Sampaio - ME,farma,10,calebe62@example.net
+2,Rezende da Mata S.A. S.A.,farma,310,enricolopes@example.com
+3,da Mota Sá S/A e Filhos,energia,360,da-motasophie@example.org
+4,Gonçalves S.A.,governo,170,ssousa@example.com
+5,Teixeira - EI S/A,farma,80,marquesjoao@example.net
+6,Azevedo - ME S.A.,governo,60,lorenzopastor@example.org
+7,Araújo S.A.,farma,390,silvaalice@example.net
+8,Pires Silva - ME S/A,farma,60,camargomariah@example.com
+9,Cassiano e Filhos S/A,energia,20,gabrielcasa-grande@example.com
+10,Pires - ME,governo,280,pastorrebeca@example.org
+11,Brito S.A.,farma,80,sophia83@example.net
+12,Cunha Ltda.,energia,110,alexiarios@example.net
+13,Cardoso Ltda. S/A,governo,230,camaracaleb@example.com
+14,Macedo S/A,farma,130,henry87@example.com
+15,Macedo Teixeira S/A Ltda.,energia,120,isis11@example.org
+16,Pastor e Filhos,energia,170,aparecidabenicio@example.net
+17,Pires Abreu - EI S.A.,governo,250,gustavo-henrique17@example.org
+18,Cavalcanti e Filhos - ME,energia,270,ncorreia@example.org
+19,Aparecida e Filhos,farma,90,da-cruzhadassa@example.net
+20,Castro S/A,governo,60,stephany85@example.org
+21,Campos Santos Ltda. Ltda.,governo,260,diegosa@example.net
+22,Moraes Ltda. - EI,farma,300,alicia73@example.org
+23,Silveira e Filhos,farma,170,pastorfelipe@example.net
+24,Pereira e Filhos S/A,energia,50,barbosaamanda@example.net
+25,Lima S.A.,energia,170,joao-guilhermelopes@example.com
+26,Souza Porto - ME - EI,farma,340,luiz-felipe20@example.net
+27,Abreu Moura e Filhos Ltda.,farma,310,antonellada-costa@example.net
+28,Moura S/A Ltda.,governo,90,pastormaria-julia@example.org
+29,Pereira - EI Ltda.,governo,300,duartejade@example.org
+30,Pires Cunha e Filhos - EI,governo,360,cirinonathan@example.org
+31,Cardoso da Conceição e Filhos S.A.,energia,340,sramos@example.net
+32,Porto - ME,farma,260,ferreirakamilly@example.net
+33,Fernandes - ME,energia,10,correiaayla@example.com
+34,Freitas Azevedo S.A. Ltda.,farma,100,pedro-lucasda-costa@example.net
+35,Nogueira S.A.,energia,30,ida-cunha@example.com
+36,Lima Ltda. - EI,farma,400,melina11@example.com
+37,Cunha S.A. e Filhos,farma,60,peixotojoao-vitor@example.com
+38,Cardoso S.A.,energia,250,vicentesantos@example.com
+39,Martins - ME,farma,220,ceciliafonseca@example.com
+40,Vargas e Filhos,energia,130,enovais@example.org
+41,Porto - ME,farma,220,marialima@example.net
+42,Pereira Ltda.,farma,300,teixeiratheo@example.org
+43,Correia S/A,governo,230,jdias@example.com
+44,Pastor - ME - EI,energia,270,joao-vitorvasconcelos@example.com
+45,Vasconcelos S/A S.A.,energia,350,crios@example.com
+46,Dias e Filhos,farma,20,nda-luz@example.com
+47,Marques - ME,energia,220,bianca92@example.org
+48,Cavalcanti - ME,energia,180,camposgabriela@example.net
+49,Ferreira Ltda.,energia,30,dvargas@example.org
