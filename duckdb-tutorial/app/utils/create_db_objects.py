@@ -29,4 +29,26 @@ conn.execute('''
                 FROM read_csv('data/fact_project_allocation')
             ''')
 
+conn.execute('''
+            create schema numbers
+            ''')
+
+conn.execute('''
+            CREATE TABLE numbers.numbers AS
+                SELECT *
+                FROM read_csv('data/numbers')
+            ''')
+
+conn.execute('''
+            CREATE TABLE numbers.numbers_2 AS
+                SELECT *
+                FROM read_csv('data/numbers_2')
+            ''')
+
+conn.execute('''
+            CREATE TABLE numbers.numbers_3 AS
+                SELECT *
+                FROM read_csv('data/numbers_3')
+            ''')
+
 conn.close()

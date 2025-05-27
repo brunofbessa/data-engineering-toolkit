@@ -1,0 +1,122 @@
+CLÁUSULA WHERE
+
+ - filtros de dados são possíveis em um script SQL por meio dessa cláusula
+ - avalia uma operação lógica com base nos valores das colunas da tabela
+ - retorna os registros que satisfazem as operações lógicas
+
+select
+    nome_coluna_1, 
+    (...)
+    nome_coluna_n
+from nome_tabela
+where
+    <operação lógica>
+
+-------------------------------------------------------------------------------
+EXERCÍCIOS
+
+1 - Exiba uma lista dos funcionários consultores aniversariantes deste mês
+2 - Gere um relatório dos funcionários com mais de 6 anos de empresa no RH
+3 - Quais os clientes do ramo de energia com receita entre 50 milhões e 100 milhões?
+4 - Gere uma lista de funcionários do financeiro (ordenados pelo sobrenome) com salários entre 10.000 e 14.000 com mais de 5 anos de empresa.
+5 - Gere um relatório de consultores e do departamento financeiro que trabalham na empresa há mais de 10 anos. Gere uma coluna categorizando seu salários em
+    - baixo: até 8.000
+    - médio: entre 8.000 e 14.000
+    - alto: maior que 14.000
+
+
+
+--------------------------------------------------------------------------------
+
+JUNÇÃO
+
+ - SQL possibilita programaticamente relacionar duas ou mais tabelas
+ - com junções podemos selecionar (SELECT) os campos/colunas de todas 
+ as tabelas envolvidas na junção
+ - a junção ocorre quando listamos mais de uma tabela na cláusula FROM (separados 
+ por vírgula). O vínculo (quando existente) entre elas é expresso como uma condição 
+ na cláusula WHERE:
+
+ select
+    t1.col_1, 
+    (...)
+    t1.col_n, 
+    t2.col_1, 
+    (...)
+    t2.col_m
+from tabela_1 t1, tabela_2 t2
+where
+    t1.col_i = t2.col_j
+
+--------------------------------------------------------------------------------
+
+EXERCÍCIOS
+
+6 - Consulte separadamente os conteúdos das tabelas do BD "numbers"
+7 - Crie uma junção sem especificar uma condição WHERE de "numbers_2" e "numbers_3".
+    Interprete os resultados.
+
+
+
+--------------------------------------------------------------------------------
+
+TIPOS DE RELACIONAMENTOS
+
+- quando duas tabelas se relacionam, definem uma CARDINALIDADE.
+- pode ser 1:1, 1:n, n:n
+- em Álgebra Relacional falamos em Produto Cartesiano
+- a modelagem de chaves primárias para as entidades no modelo ER 
+é o que garante que os resultados das consultas tragam as cardinalidades corretas
+
+
+--------------------------------------------------------------------------------
+
+TIPOS DE JUNÇÕES
+
+- o modo mais comum de relacionar tabelas em SQL é por meio de suas chaves
+- uma sintaxe mais amigável para trabalhar com junções é através do operador JOIN:
+- uma junção com chaves é uma operação de intersecção: https://en.wikipedia.org/wiki/Join_(SQL)
+
+ select
+    t1.col_1, 
+    (...)
+    t1.col_n, 
+    t2.col_1, 
+    (...)
+    t2.col_m
+from tabela_1 t1
+join tabela_2 t2
+    on t1.col_i = t2.col_j
+
+-------------------------------------------------------------------------------
+
+EXERCÍCIOS
+
+6 - Repita o exercício 7 usando a sintaxe join. Como você faria isso?
+7 - Relacione as tabelas "fact_sale", "dim_employee" e "dim_client" através 
+de suas chaves
+8 - Quais os cargos dos responsáveis pelas contas dos clientes?
+9 - Gere um relatório de alocações de consultores em clientes de farma. Há mais de uma forma de fazer essa consulta?
+
+-------------------------------------------------------------------------------
+
+UNIÃO
+
+- quando dessejamos que os resultados de duas ou mais consultas sejam anexados
+- o SGBD pode ou não permitir que as consultas anexadas tenham esquemas diferentes
+
+-------------------------------------------------------------------------------
+
+EXERCÍCIOS
+
+7 - Consulte a documentação do DuckDB para o comando UNION
+8 - Gere através de UNION:
+    união de: 
+        1 - nomes dos funcionários do financeiro 
+        2 - funcionários do RH com mais de 7 anos na empresa
+    união de: 
+        1 - clientes tier 1 
+        2 - clientes tier 3 do setor de energia
+    união de: 
+        1 - clientes tier 2 
+        2 - clientes tier 3 do setor de farma

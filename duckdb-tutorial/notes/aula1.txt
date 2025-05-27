@@ -1,0 +1,179 @@
+KT SQL - TCS - MAIO DE 2025
+
+instrutor: Bruno F. Bessa
+Bach. Física Computacional, Mestre Ciência da Computação
+
+fala sobre: {engenharia de dados, 
+            ciência de dados, 
+            algoritmos, 
+            graph deep learning
+            programação, risco de mercado}
+
+-------------------------------------------------------------------------------
+
+INTRODUÇÃO AOS BANCOS DE DADOS
+
+ - SGBD: coleção (BD) inter-relacionada de dados (geralmente tabulares) acessadas
+ via software, garantindo eficiência e consistência em seu acesso
+ - ACID
+ - Muito importantes para organizações e governos
+ - Big Data & Analytics
+
+-------------------------------------------------------------------------------
+
+PROJETO DE BANCO DE DADOS
+
+Camadas de abstração
+ - Nível físico (estruturas e tipos de dados, compactação)
+ - Nível lógico* (modelo funcional)
+ - Nível visão (funcionalidades específicas dos dados para cada fim)
+
+
+-------------------------------------------------------------------------------
+
+MODELO ER 
+ - eNtidades (E) do mundo real são modeladas em seus atributos
+ - entidades se relacionam (R) entre si
+ - mapeamento ER deve atender a realidade do sistema observado e 
+ se concentrar em responder a questões do problema proposto
+
+Um projeto de banco de dados deve ser capaz de aumentar o conhecimento 
+do sistema observado
+
+------------------------------------------------------------------------------
+
+SQL - STRUCTURED QUERY LANGUAGE
+
+Relational DB and data independence: 
+ - https://www.seas.upenn.edu/~zives/03f/cis550/codd.pdf
+
+SEQUEL: 
+ - https://dl.acm.org/doi/pdf/10.1145/951787.951765
+ - https://s3.us.cloud-object-storage.appdomain.cloud/res-files/2705-sequel-1974.pdf
+
+SQL é uma linguagem estruturada não procedural que permite a operação de conjuntos 
+(de dados):
+
+ - pertencimento
+ - união
+ - intersecção
+ - diferença
+ - produtos
+
+-------------------------------------------------------------------------------
+
+TIPOS DE LINGUAGENS
+
+SQL + SGBD permitem:
+ - definição de dados (DDL)
+ - manipulação de dados (DML)
+ - consulta* de dados (DQL)
+ - transações em dados (DTL)
+ - controle de dados (DCL)
+
+
+ ------------------------------------------------------------------------------
+
+REVISÃO BD 
+
+ - Quais ER poderiam ser usadas para modelar:
+    - um sistema de locadoras de videocassete
+    - uma rede social
+
+ - No projeto de BD, em qual/quais nível(s) de abstração se dedicaria a 
+ coleta de requisitos?
+
+ ------------------------------------------------------------------------------
+
+ESQUEMA DE DADOS
+ - lista de atributos e seus possíveis domínios para cada entidade
+ - em um BD é representado pela definição de uma tabela em suas colunas 
+ e possíveis restrições
+ - o campo (coluna) ou conjunto de campos que delimita univocamente um exemplo 
+ da entidade (registro na tabela) é chamado CHAVE PRIMÁRIA
+ - duas entidades se relacionam quando a referência de uma é exportada para a 
+ outra por sua chave. O campo de uma tabela que recebe o valor da chave de 
+ outra tabela é chamado CHAVE ESTRANGEIRA
+ - os modelos lógico e físico podem ser expressos em diagramas que expressam 
+ graficamente as relações
+
+--------------------------------------------------------------------------------
+
+COOMANDO SELECT - SINTAXE
+
+select
+    nome_coluna_1, 
+    (...)
+    nome_coluna_n
+from nome_tabela
+
+
+
+-------------------------------------------------------------------------------
+
+COMANDO SELECT
+
+ - permite gerar uma visualização da tabela selecionada, 
+ indicada pela cláusula FROM
+ - é o principal comando da linguagem SQL
+ - permite um grau arbitrário de possibilidades de leitura dos dados, 
+ atendendo aos fins mais diversos
+ - SGBD proverá funções nativas para operações com texto, data, numéricas
+ - permite que uma coluna seja renomeada na saída do comando
+ - ordenação e limite de linhas
+ - https://duckdb.org/docs/stable/sql/functions/overview.html
+
+-------------------------------------------------------------------------------
+
+EXERCÍCIOS
+
+ 1 - gere um relatorio dos clientes ordenados (decrescentemente) pelo 
+ valor de receita 
+ 2 - gere uma lista de mensagens para os funcionários no formato:
+    "O funcionário Luis Ferreira trabalha em RH há 5 anos"  
+ 3 - para cada departamento, gere a lista de funcionários ordenados pelo cargo 
+ em ordem alfabética e salário em ordem decrescente 
+ 4 - quais os 10 funcionários com menores salários?
+ 5 - qual papel do operador * no comando SELECT? 
+ 5 - qual papel do operador DISTINCT no comando SELECT? 
+
+
+-------------------------------------------------------------------------------
+
+COMANDO CASE-WHEN
+
+case
+    when <condição lógica 1> then <valor de retorno 1>
+    (...)
+    when <condição lógica n> then <valor de retorno n>
+    else <valor de retorno padrão>
+end
+
+ - possibilita avaliar os valores de uma expressão e retornar uma resposta 
+dependendo dessa avaliação
+ - semelhante à lógica if-then-else de linguagens procedurais
+ - as condições lógicas são avaliadas linha a linha
+
+
+
+
+
+-------------------------------------------------------------------------------
+
+EXERCÍCIOS
+ 5 - Consulte a documentação do DuckDB para operadores lógicos:
+ https://duckdb.org/docs/stable/sql/expressions/logical_operators
+ 6 - Gere um relatório com possíveis valores de aumento para os funcionários 
+ contendo contendo nome completo, departamento, posição, salário atual e salário 
+ com aumento conforme as taxas:
+    - 3% para salários maiores de 12.000
+    - 4.5% para funcionários de TI que tenham salário entre 7.000 e 12.000
+    - 4.6% para funcionários de consultoria que tenham salário entre 7.000 e 12.000
+    - 4.4% para funcionários de RH que tenham salário entre 7.000 e 12.000
+    - 5% para salários menores que 7.000
+
+7 - Gere um relatório com as faixas de interesse de clientes:
+    - 1: para governo, farma com receita maior que 200 milhões, 
+    energia com receita maior que 300 milhões
+    - 2: farma com receita até 200 milhões  
+    - 3: demais casos
