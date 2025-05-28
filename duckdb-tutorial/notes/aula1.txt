@@ -9,6 +9,8 @@ fala sobre: {engenharia de dados,
             graph deep learning
             programação, risco de mercado}
 
+Referência bibliográfica: Sistemas de Bancos de Dados -  Silberschatz, Korth, Sudarshan, 6.a edição, Editora Campus
+
 -------------------------------------------------------------------------------
 
 INTRODUÇÃO AOS BANCOS DE DADOS
