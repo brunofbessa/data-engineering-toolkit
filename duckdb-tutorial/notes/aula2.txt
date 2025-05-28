@@ -120,3 +120,59 @@ EXERCÍCIOS
     união de: 
         1 - clientes tier 2 
         2 - clientes tier 3 do setor de farma
+
+-------------------------------------------------------------------------------
+
+SUBCONSUTAS
+
+- assim como em teoria dos conjuntos, podemos desejar estudar o comportamento de uma porção de dados que, do ponto de vista lógico e funcional, está inserido dentro de um outro conjunto. 
+- isso pode ser obtido por meio de subconsultas
+- apesar de SQL permitir consultas aninhadas como esquematizado abaixo, escrever consultas dessa forma é desaconselhado devido aos prejuízos trazidos à legibilidade de código.
+
+select (...) from (
+    select (...) from (
+        selct (...) ...
+    )
+)
+
+
+-------------------------------------------------------------------------------
+
+COMMON TABLE EXPRESSIONS
+
+- a cláusula WITH permite criar lógicas estruturadas de pesquisa que podem ser referenciadas por nome ao longo do código
+- podemos usar um número arbitrário de CTEs e geralmente resulta em cógidos mais legíveis do que utilizando subconsultas
+
+with emp_financeiro as (
+select
+    *
+from empregados
+where 
+    nome_departamento = 'FINANCEIRO'
+)
+select 
+    nome,
+    salario
+from emp_financeiro
+
+-------------------------------------------------------------------------------
+
+OPERADOR EXISTS
+ 
+- utilizado em conjunto com o operador WHERE
+- retorna verdadeiro ou falso para uma expressão SQL avaliada
+- se o retorno for verdadeiro a expressão mais geral retorna seu resultado
+
+select 
+    *
+from empregados
+where exists(select * from vendas where valor_venda>1000000)
+
+-------------------------------------------------------------------------------
+
+EXERCÍCIOS
+
+9 - Gere uma pesquisa que traga os 10 maiores salários de empregados do RH utilizando CTE
+10 - Para os empregados alocados em projetos de clientes de farma, gere um relatório com nome completo, cargo, data de admissão e data de início do projeto
+11 - Caso haja funcionários contratados há menos de 6 anos, liste os empregados de TI alocados em projetos de clientes energia
+12 - Qual a função do operador IN?

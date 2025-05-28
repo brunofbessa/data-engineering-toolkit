@@ -1,0 +1,125 @@
+VISÕES
+
+- são consultas SQL referenciadas por um nome e salvas no SGBD para uso posterior
+- regras de negócio específicas são comumente aplicadas em views
+
+create view minha_view as 
+select 
+    (...)
+from tabela
+where 
+    (...)
+
+
+
+-------------------------------------------------------------------------------
+
+EXERCÍCIOS
+
+** no SGBD lembre de qualificar o nome da view quando de sua criação:
+    nome_conexao.nome_bd.nome_view
+
+1 - Crie uma view com os funcionários que não são de TI, omitindo os dados de salário e data de nascimento.
+2 - Utilize o conceito de tier para os clientes, criando uma view com essa informação em uma nova coluna chamada "tier_cliente"
+3 - Crie uma view com nome, sobrenome, cargo e departamento de todos os empregados alocados em projetos de clientes de farma cuja receita destes seja superior a 100 milhões.
+4 - crie uma view com os números da tabela "numbers_2" que não estão na tabela "numbers".
+5 - Crie uma view com a relação de todos os empregados de TI de projetos de clientes de energia, sendo esses projetos iniciados há pelo menos 5 anos
+6 - Qual o conceito de view materializada? Quando é vantajoso usa-la?
+
+
+-------------------------------------------------------------------------------
+
+WINDOW FUNCTIONS
+
+- são funções especiais dos SGBD que permitem, durante a avaliação de um registro, utilizar os dados de outros registros.
+- são comumente usadas com a ideia de janela móvel
+- requerem a especificação da unidade de agregação e a ordem dentro dessa agregação pelas cláusulas OVER (PARTITION BY <campos> order by <campos>)
+- DuckDB Window Functions: https://duckdb.org/docs/stable/sql/functions/window_functions
+
+
+-------------------------------------------------------------------------------
+
+7 - Gere a relação dos dois funcionários com maior salário para cada departamento da empresa. Guarde este resultado em uma view
+8 - Quais os 3 funcionários com mais tempo de casa por departamento?
+
+
+-------------------------------------------------------------------------------
+
+DDL - CRIAÇÃO DE TABELAS
+
+- a criação de tabelas envolve a especificação dos tipos de dados para cada coluna bem como suas restrições. Essas fogem do escopo deste treinamento
+- restrições (constraints) comuns são exigência de unicidade para campos, proibir que seja permitido valor nulo, verificação de valores conforme uma relação prévia entre outros
+- comando utilizado: CREATE TABLE
+
+create table minha_nova_tabela(
+    id integer
+    nome varchar
+)
+
+-------------------------------------------------------------------------------
+
+EXERCÍCIO
+
+9 - Crie uma nova tabela chamada dim_aux contendo:
+    nome texto
+    sobrenome texto
+    departamento texto
+
+-------------------------------------------------------------------------------
+
+DML INSERÇÃO DE REGISTROS
+
+- utilizamos o comando INSERT INTO para indicar a tabela que será alimentada e VALUES para indicar a tupla de valores inseridos
+
+
+insert into minha_nova_tabela values (1, 'Carlos')
+insert into minha_nova_tabela values (2, 'Frederico')
+insert into minha_nova_tabela values (3, 'Vladimir')
+
+- a tupla de valores pode ser uma expressão SQL que tenha o mesmo esquema da tabela que receberá os dados, desde que respeite suas restrições
+
+
+-------------------------------------------------------------------------------
+
+EXERCÍCIO
+
+10 - Popule a tabela criada no exercício 9 com dados da tabela de empregados
+
+
+
+
+
+-------------------------------------------------------------------------------
+
+PLANO DE EXECUÇÃO
+
+- uma consulta SQL envolve uma sequência de operações lógicas executadas pelo SGBD. A otimização de consultas requer que saibamos usar o SQL de forma eficiente
+- o plano de execução mostra quais os passos que serão executados pelo SQBG para retornar o resultado de uma instrução SQL.
+- comando EXPLAIN
+- DuckDB EXPLAIN: https://duckdb.org/docs/stable/guides/meta/explain.html
+
+
+
+
+-------------------------------------------------------------------------------
+
+DATA WAREHOUSE
+
+- é um projeto robusto de banco de dados com propósito de apoio à tomada de decisão corporativa
+- basea-se em topologias de modelagem de tabelas para garantir eficiência de leitura, limitando a repetição da escrita dos mesmos dados (redundância). As mais comuns são modelo Star e Snowflake
+- do ponto de vista do modelo físico são otimizadas para a leitura
+
+
+-------------------------------------------------------------------------------
+
+DATA LAKE
+
+- um ambiente de descobrimento de valor para os dados sem necessariamente estar atrelado a uma necessidade de negócio, diferentemente do DW
+- dados são ingeridos em seu estado natural e progressivamente acrescidos de valor para o negócio (limpeza, catalogação, validação, consolidação)
+- basea-se em tecnologias mais baratas para o armazenamento, utilizando recurosos computacionais para a extração de valor nas camadas mais elevadas do DL
+
+
+
+
+
+

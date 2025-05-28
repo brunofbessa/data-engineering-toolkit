@@ -177,3 +177,5 @@ EXERCÍCIOS
     energia com receita maior que 300 milhões
     - 2: farma com receita até 200 milhões  
     - 3: demais casos
+
+** lembre-se de nomear as colunas criadas!

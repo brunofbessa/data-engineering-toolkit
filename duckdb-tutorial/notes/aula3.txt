@@ -1,0 +1,60 @@
+AGREGAÇÕES
+
+- são estatísticas que podem ser extraídas da coleção de dados disponíveis
+- descrevem quanitativa e qualitativamente os dados
+- indispensáveis para o conceito de KPI
+- necessitam que se delimite a UNIDADE DE AGREGAÇÃO (campos desejados na consulta e que não sofrerão agregação) por meio da cáusula GROUP BY
+- DuckDB Aggregate Functions: https://duckdb.org/docs/stable/sql/functions/aggregates.html
+
+
+
+-------------------------------------------------------------------------------
+
+EXERCÍCIOS
+
+1 - Quais funcões estatísticas você conhece para EDA?
+2 - Quando falamos de dados numéricos, que tipo de agregações são possíveis? E para dados do tipo categórico?
+3 - Gere um relatório com a média de salário dos empregados por departamento
+4 - Qual o tempo mínimo, médio e máximo de empresa dos empregados de TI alocados em projeto de clientes de farma?
+5 - Se os dados de salário pudessem ser modelados com uma distribuição normal, quais seriam os parâmetros dessa distribuição?
+6 - Explique o conceito de "outlier"
+
+
+
+-------------------------------------------------------------------------------
+
+EXERCÍCIOS
+
+7 - Qual o tempo de empresa médio dos gerentes de contas de projetos de clientes de farma?
+8 - Qual a data do primeiro projeto de cada setor de empresas clientes?
+9 - Qual a diferença entre média e mediana?
+10 - Explique o conceiro da métrica correlação de Pearson
+
+
+-------------------------------------------------------------------------------
+
+ClÁUSULA HAVING
+
+- semelhantemente aos filtros que fazemos com WHERE, usamos HAVING quando desejamos avaliar sobre dados agregados, ou seja, que não existem na tabela original e que são criados durante a consulta
+
+select 
+    departamento, 
+    avg(salario) as salario_medio
+from empregados
+where 
+    cargo = 'GERENTE'
+having avg(salario) > 15000
+
+-------------------------------------------------------------------------------
+
+EXERCÍCIOS
+
+11 - Filtre os empregados pertencentes ao departamento com maior número de consultores.
+12 - Gere uma pesquisa com os trainees pertencentes a projetos de farma, sendo esses projetos em clientes com receira acima da média para o setor.
+13 - Quais os analistas com maior tempo de empresa cujo salário é abaixo da média de seu cargo?
+
+
+
+
+
+
